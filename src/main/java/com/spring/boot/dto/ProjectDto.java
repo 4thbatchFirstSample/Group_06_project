@@ -2,7 +2,7 @@ package com.spring.boot.dto;
 
 public class ProjectDto {
 	private Long id;
-	private String name;
+	private String firstname;
 	private String abbreviation;
 
 	public Long getId() {
@@ -13,12 +13,14 @@ public class ProjectDto {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	
+
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
 	public String getAbbreviation() {
