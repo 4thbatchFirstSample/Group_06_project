@@ -15,7 +15,7 @@ public class ProjectConverter {
 		Project project = new Project();
 		if (projectDto != null) {
 			project.setId(projectDto.getId());
-			project.setName(projectDto.getName());
+			project.setName(projectDto.getFirstname());
 			project.setAbbreviation(projectDto.getAbbreviation());
 			return project;
 		}
@@ -30,7 +30,7 @@ public class ProjectConverter {
 			for (Project project : projectList) {
 				ProjectDto projectDto = new ProjectDto();
 				projectDto.setId(project.getId());
-				projectDto.setName(project.getName());
+				projectDto.setFirstname(project.getName());
 				projectDto.setAbbreviation(project.getAbbreviation());
 
 				listProjectDto.add(projectDto);
