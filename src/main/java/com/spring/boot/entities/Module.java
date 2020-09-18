@@ -13,7 +13,6 @@ public class Module {
 	private long moduleId;
 	private String name;
 	private String desc;
-	private String duration;
 	private String status;
 	
 	
@@ -29,12 +28,7 @@ public class Module {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	public String getDuration() {
-		return duration;
-	}
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
+	
 	public long getModuleId() {
 		return moduleId;
 	}
