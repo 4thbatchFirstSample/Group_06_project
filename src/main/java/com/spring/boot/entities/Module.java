@@ -7,40 +7,33 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name ="moduleTbl" )
 public class Module {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long moduleId;
-	private String name;
-	private String desc;
-	private String duration;
-	
-	
-	public String getDesc() {
-		return desc;
-	}
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-	public String getDuration() {
-		return duration;
-	}
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
+	private String moduleName;
+	private String moduleDesc;
 	public long getModuleId() {
 		return moduleId;
 	}
 	public void setModuleId(long moduleId) {
 		this.moduleId = moduleId;
 	}
-	public String getName() {
-		return name;
+	public String getModuleName() {
+		return moduleName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
 	}
+	public String getModuleDesc() {
+		return moduleDesc;
+	}
+	public void setModuleDesc(String moduleDesc) {
+		this.moduleDesc = moduleDesc;
+	}
+	
+	
 	
 		
 	
