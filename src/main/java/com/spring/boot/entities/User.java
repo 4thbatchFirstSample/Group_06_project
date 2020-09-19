@@ -1,9 +1,13 @@
 package com.spring.boot.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,4 +36,8 @@ public class User {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
+	
+	
+	 @ManyToMany(mappedBy = "userTbl")
+	    private Set<SubModule> recordings = new HashSet<>();
 }

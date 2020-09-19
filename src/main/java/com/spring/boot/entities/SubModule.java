@@ -50,4 +50,13 @@ public class SubModule {
 	    private Defect defects;
 	 
 
+	 //Parent many to may relationship with user
+	 @ManyToMany(cascade = { CascadeType.ALL })
+	    @JoinTable(
+	            name = "SubModUserTbl",
+	            joinColumns = { @JoinColumn(name = "userId") },
+	            inverseJoinColumns = { @JoinColumn(name = "subModuleId") })
+	 
+	 
+	
 }
