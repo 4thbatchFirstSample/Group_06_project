@@ -1,9 +1,15 @@
 package com.spring.boot.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,7 +41,15 @@ public class Module {
 	
 	
 	
-		
+	//Parent Relationship with project
+	 @OneToMany(mappedBy = "moduleTbl")
+	    private Set<Project> projects = new HashSet<>();
 	
+		
+		//Child Relationship with sub  module
+	 @ManyToOne
+	    @JoinColumn(name = "subModuleId")
+	    private SubModule subModules;
+	 
 
 }

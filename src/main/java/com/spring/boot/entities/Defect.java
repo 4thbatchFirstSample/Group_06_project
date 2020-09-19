@@ -1,9 +1,13 @@
 package com.spring.boot.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -75,6 +79,8 @@ public class Defect {
 		this.defectAssignTo = defectAssignTo;
 	}
 	
-	 
+	//Parent Relationship with submodules
+	 @OneToMany(mappedBy = "defectTbl")
+	    private Set<SubModule> subModules = new HashSet<>();
 	 
 }
