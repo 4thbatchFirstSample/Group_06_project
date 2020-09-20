@@ -1,4 +1,5 @@
 package com.spring.boot.entities;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,18 +8,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Module {
+public class ModuleNew {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Long id;
 	private String name;
-	private String description;
 	private String status;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -27,18 +27,12 @@ public class Module {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	public String getStatus() {
 		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
+	
 	
 }

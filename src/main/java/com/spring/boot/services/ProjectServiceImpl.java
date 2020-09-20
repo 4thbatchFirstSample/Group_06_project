@@ -1,5 +1,7 @@
 package com.spring.boot.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,11 @@ public class ProjectServiceImpl implements ProjectService {
 	public void addProject(Project project) {
 		projectRepository.save(project);
 
+	}
+
+	@Override
+	public List<Project> getProject() {
+		return projectRepository.findAll();
 	}
 
 }
