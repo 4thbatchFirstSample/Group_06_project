@@ -1,33 +1,38 @@
 package com.spring.boot.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table
 public class SubModule {
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long submoduleid;
-	private String  submodulename;
+	private Long id;
+	private String submodulename;
 	private String submodulestatus;
-	public Long getSubmoduleid() {
-		return submoduleid;
+	
+	public Long getId() {
+		return id;
 	}
-	public void setSubmoduleid(Long submoduleid) {
-		this.submoduleid = submoduleid;
+	public void setId(Long id) {
+		this.id = id;
 	}
-	public String getSubmodulename() {
+	public String getName() {
 		return submodulename;
 	}
-	public void setSubmodulename(String submodulename) {
-		this.submodulename = submodulename;
+	public void setName(String name) {
+		this.submodulename = name;
 	}
-	public String getSubmodulestatus() {
+	public String getStatus() {
 		return submodulestatus;
 	}
-	public void setSubmodulestatus(String submodulestatus) {
-		this.submodulestatus = submodulestatus;
+	public void setStatus(String status) {
+		this.submodulestatus = status;
 	}
+	
 	
 }
