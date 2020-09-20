@@ -10,30 +10,16 @@ import javax.persistence.Table;
 public class Module {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long moduleId;
+	private long id;
 	private String name;
-	private String desc;
+	private String description;
 	private String status;
 	
-	
-	public String getStatus() {
-		return status;
+	public long getId() {
+		return id;
 	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public String getDesc() {
-		return desc;
-	}
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-	
-	public long getModuleId() {
-		return moduleId;
-	}
-	public void setModuleId(long moduleId) {
-		this.moduleId = moduleId;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -41,4 +27,18 @@ public class Module {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	
 }
