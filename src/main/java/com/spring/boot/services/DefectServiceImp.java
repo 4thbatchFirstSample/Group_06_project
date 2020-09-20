@@ -54,6 +54,12 @@ public class DefectServiceImp implements DefectService {
 		defectRepository.deleteById(id);
 		
 	}
+
+	@Override
+	public List<Defect> findBydefectStatusContaining(String defectStatus) {
+		// TODO Auto-generated method stub
+		return defectRepository.findBydefectStatusContaining(defectStatus);
+	}
 	
 	
 	

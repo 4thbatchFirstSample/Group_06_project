@@ -71,6 +71,17 @@ public class DefectController {
 		
 	}
 	
+	//status
+
+	@GetMapping("/defects/status/active")
+	public List<Defect> findBydefectStatusActive(){
+		return defectService.findBydefectStatusContaining("active");
+	}
+	
+	@GetMapping("/defects/status/closed")
+	public List<Defect> findBydefectStatusClosed(){
+		return defectService.findBydefectStatusContaining("closed");
+	}
 	
 	
 

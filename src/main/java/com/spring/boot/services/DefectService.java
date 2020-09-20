@@ -26,7 +26,9 @@ public interface DefectService {
 		
 		public void deleteDefect(Long id);
 		
-	//getByStatus
+	//getBydefectStatus
+		
+		List<Defect> findBydefectStatusContaining(String defectStatus);
 		
 		
 	
