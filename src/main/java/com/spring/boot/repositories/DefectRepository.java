@@ -8,5 +8,5 @@ import com.spring.boot.entities.Defect;
 
 @Repository
 public interface DefectRepository extends JpaRepository<Defect, Long> {
-
+	
 }
