@@ -75,14 +75,51 @@ public class DefectController {
 
 	@GetMapping("/defects/status/active")
 	public List<Defect> findBydefectStatusActive(){
-		return defectService.findBydefectStatusContaining("active");
+		return defectService.getBydefectStatusContaining("active");
 	}
 	
 	@GetMapping("/defects/status/closed")
 	public List<Defect> findBydefectStatusClosed(){
-		return defectService.findBydefectStatusContaining("closed");
+		return defectService.getBydefectStatusContaining("closed");
 	}
 	
+	@GetMapping("/defects/status/reopened")
+	public List<Defect> findBydefectStatusReOpened(){
+		return defectService.getBydefectStatusContaining("reopened");
+	}
+	
+	//S
+	
+	@GetMapping("/defects/severity/high")
+	public List<Defect> findBySeverityHigh(){
+		return defectService.getBydefectSeverityContaining("high");
+	}
+	@GetMapping("/defects/severity/low")
+	public List<Defect> findBySeverityLow(){
+		return defectService.getBydefectSeverityContaining("low");
+	}
+
+	@GetMapping("/defects/severity/medium")
+	public List<Defect> findBySeverityMedium(){
+		return defectService.getBydefectSeverityContaining("medium");
+	}
+
+	
+	//p
+	@GetMapping("/defects/priority/high")
+	public List<Defect> findByPriorityHigh(){
+		return defectService.getBydefectPriorityContaining("high");
+	}
+	
+	@GetMapping("/defects/priority/low")
+	public List<Defect> findByPriorityLow(){
+		return defectService.getBydefectPriorityContaining("low");
+	}
+	
+	@GetMapping("/defects/priority/medium")
+	public List<Defect> findByPriorityMedium(){
+		return defectService.getBydefectPriorityContaining("medium");
+	}
 	
 
 }

@@ -56,9 +56,21 @@ public class DefectServiceImp implements DefectService {
 	}
 
 	@Override
-	public List<Defect> findBydefectStatusContaining(String defectStatus) {
+	public List<Defect> getBydefectStatusContaining(String defectStatus) {
 		// TODO Auto-generated method stub
 		return defectRepository.findBydefectStatusContaining(defectStatus);
+	}
+
+	@Override
+	public List<Defect> getBydefectSeverityContaining(String defectSeverity) {
+		// TODO Auto-generated method stub
+		return defectRepository.findBydefectSeverityContaining(defectSeverity);
+	}
+
+	@Override
+	public List<Defect> getBydefectPriorityContaining(String defectPriority) {
+		// TODO Auto-generated method stub
+		return defectRepository.findBydefectPriorityContaining(defectPriority);
 	}
 	
 	

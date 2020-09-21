@@ -28,10 +28,16 @@ public interface DefectService {
 		
 	//getBydefectStatus
 		
-		List<Defect> findBydefectStatusContaining(String defectStatus);
-		
-		
+		List<Defect> getBydefectStatusContaining(String defectStatus);
 	
+	//defectSeverity
+		
+		List<Defect> getBydefectSeverityContaining(String defectSeverity);
+		
+		
+	//defectPriority
+		
+		List<Defect> getBydefectPriorityContaining(String defectPriority);
 		
 		
 		
