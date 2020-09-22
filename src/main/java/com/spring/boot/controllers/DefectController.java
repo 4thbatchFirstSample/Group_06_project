@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.services.DefectService;
+import com.spring.boot.converters.DefectConverter;
 import com.spring.boot.entities.Defect;
+import com.spring.boot.dto.DefectDto;
 
 @RestController
 @RequestMapping(value = "api/v1")
@@ -24,10 +26,17 @@ public class DefectController {
 	private DefectService defectService;
 	
 	//addDefect
-	@PostMapping("/defect")
-	public Defect addDefect(@RequestBody Defect defect) {
-		return defectService.addDefect(defect);
-		
+//	@PostMapping("/defect")
+//	public Defect addDefect(@RequestBody Defect defect) {
+//		return defectService.addDefect(defect);
+//		
+//	}
+	
+	
+	@PostMapping(value = "/defect")
+	public Defect addDefect(@RequestBody DefectDto defectDto) {
+		 return defectService.addDefect(DefectConverter.defectDtoToDefect(defectDto));
+//		 return new ResponseEntity<Object>("New defect added!!!",HttpStatus.CREATED);
 	}
 	
 	//getAllDefects
