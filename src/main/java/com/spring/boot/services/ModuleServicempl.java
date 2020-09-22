@@ -23,6 +23,12 @@ public class ModuleServicempl implements ModuleService {
 		return moduleRepo.findAll();
 	}
 
+	@Override
+	public void deletemodule(Long id) {
+		 moduleRepo.deleteById(id);
+		
+	}
+
 	
 
 	
