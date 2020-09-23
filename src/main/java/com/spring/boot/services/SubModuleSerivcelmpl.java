@@ -18,10 +18,14 @@ public class SubModuleSerivcelmpl implements SubModuleService{
 		submoduleRepository.save(submodule);
 		
 	}
-
 	@Override
 	public List<SubModule> getAllSubModule() {
 		return submoduleRepository.findAll();
+	}
+	@Override
+	public void deletesubmodule(Long id) {
+		submoduleRepository.deleteById(id);
+		
 	}
 	
 

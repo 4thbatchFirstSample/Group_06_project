@@ -26,7 +26,7 @@ public class ModuleController {
 		return new ResponseEntity<Object>("Added", HttpStatus.OK);
 	}
 	
-	@GetMapping(value ="/module")
+	@GetMapping(value ="/module/view")
 	public ResponseEntity<Object> getModule(){
 		return new ResponseEntity<Object>(moduleService.getAllModule(), HttpStatus.OK);
 	}
