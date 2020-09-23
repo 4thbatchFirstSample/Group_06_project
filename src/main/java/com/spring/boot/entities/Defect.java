@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -79,8 +81,10 @@ public class Defect {
 		this.defectAssignTo = defectAssignTo;
 	}
 	
-	//Parent Relationship with submodules
-	 @OneToMany(mappedBy = "defectTbl")
-	    private Set<SubModule> subModules = new HashSet<>();
+	
+	//Child relationship with submodule
+	@ManyToOne
+	 @JoinColumn(name = "subModuleId")
+	 private SubModule subModules;
 	 
 }

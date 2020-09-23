@@ -1,26 +1,25 @@
 package com.spring.boot.dto;
 
 public class ProjectDto {
-	private Long id;
-	private String firstname;
+	private Long ProjectId;
+	private String ProjectName;
 	private String abbreviation;
 
-	public Long getId() {
-		return id;
+
+	public Long getProjectId() {
+		return ProjectId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setProjectId(Long projectId) {
+		ProjectId = projectId;
 	}
 
-	
-
-	public String getFirstname() {
-		return firstname;
+	public String getProjectName() {
+		return ProjectName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setProjectName(String projectName) {
+		ProjectName = projectName;
 	}
 
 	public String getAbbreviation() {

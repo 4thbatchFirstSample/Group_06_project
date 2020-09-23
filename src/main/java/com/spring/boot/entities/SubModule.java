@@ -45,24 +45,23 @@ public class SubModule {
 		this.subModuleDesc = subModuleDesc;
 	}
 	
-	//Parent Relationship with module
-	 @OneToMany(mappedBy = "subModuleTbl")
-	    private Set<Module> modules = new HashSet<>();
-
-	 
-		//Child Relationship with sub  defect
-	 @ManyToOne
-	    @JoinColumn(name = "defectId")
-	    private Defect defects;
-	 
-
-	 //Parent many to may relationship with user
-	 @ManyToMany(cascade = { CascadeType.ALL })
-	    @JoinTable(
-	            name = "SubModUserTbl",
-	            joinColumns = { @JoinColumn(name = "userId") },
-	            inverseJoinColumns = { @JoinColumn(name = "subModuleId") })
-	 
-	 private Set<User> users = new HashSet<>();
 	
+	//Child relationship with module
+	 @ManyToOne
+	 @JoinColumn(name = "moduleId")
+	 private Module modules;
+	
+		
+		//Parent Relationship with Defect	
+		 @OneToMany(mappedBy="subModules")
+		 private Set<Defect> defects = new HashSet<>();
+
+
+		 //MantToMany relationship with user
+		 @ManyToMany(mappedBy = "subModules")
+		 private Set<User> users = new HashSet<>();
 }
+
+
+
+

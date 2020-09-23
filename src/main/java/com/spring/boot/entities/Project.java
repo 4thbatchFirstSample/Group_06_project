@@ -1,11 +1,15 @@
 package com.spring.boot.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,37 +17,53 @@ import javax.persistence.Table;
 public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private String name;
+	private Long ProjectId;
+	private String ProjectName;
 	private String abbreviation;
 
-	public Long getId() {
-		return id;
+
+	
+	public Long getProjectId() {
+		return ProjectId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+
+
+	public void setProjectId(Long projectId) {
+		ProjectId = projectId;
 	}
 
-	public String getName() {
-		return name;
+
+
+	public String getProjectName() {
+		return ProjectName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+
+	public void setProjectName(String projectName) {
+		ProjectName = projectName;
 	}
+
+
 
 	public String getAbbreviation() {
 		return abbreviation;
 	}
 
+
+
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
 
-	
-	//Child Relationship with module
-	 @ManyToOne
-	    @JoinColumn(name = "moduleId")
-	    private Module module;
+
+
+
+
+
+	//Parent Relationship with module
+	 @OneToMany(mappedBy="projects")
+	 private Set<Module> module = new HashSet<>();
+	  
 }

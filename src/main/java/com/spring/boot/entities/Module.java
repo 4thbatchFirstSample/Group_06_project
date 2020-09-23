@@ -41,15 +41,14 @@ public class Module {
 	
 	
 	
-	//Parent Relationship with project
-	 @OneToMany(mappedBy = "moduleTbl")
-	    private Set<Project> projects = new HashSet<>();
-	
-		
-		//Child Relationship with sub  module
+	//Child Relationship with project
 	 @ManyToOne
-	    @JoinColumn(name = "subModuleId")
-	    private SubModule subModules;
-	 
+	 @JoinColumn(name = "ProjectId")
+	 private Project projects;
+	    
+	
+	//Parent Relationship with project	
+	 @OneToMany(mappedBy="modules")
+	 private Set<SubModule> subModule = new HashSet<>();
 
 }
