@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,17 @@ public class Defect {
 	private String defectSubModule;
 	private String defectEnteredBy;
 	private String defectAssignTo;
+	
+	@ManyToOne
+	@JoinColumn(name = "subModuleId", nullable = false)
+	private SubModule subModule;
+	
+	public SubModule getSubModule() {
+		return subModule;
+	}
+	public void setSubModule(SubModule subModule) {
+		this.subModule = subModule;
+	}
 	public long getDefectId() {
 		return defectId;
 	}

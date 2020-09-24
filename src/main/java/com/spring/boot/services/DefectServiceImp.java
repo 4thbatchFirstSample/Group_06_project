@@ -72,6 +72,13 @@ public class DefectServiceImp implements DefectService {
 		// TODO Auto-generated method stub
 		return defectRepository.findBydefectPriorityContaining(defectPriority);
 	}
+
+	@Override
+	public List<Defect> getBySubModule(Long id) {
+		// TODO Auto-generated method stub
+		return defectRepository.findBySubModuleId(id);
+		
+	}
 	
 	
 	

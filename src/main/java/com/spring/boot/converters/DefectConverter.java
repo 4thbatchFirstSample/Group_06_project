@@ -10,7 +10,7 @@ import com.spring.boot.entities.Defect;
 
 @Service
 public class DefectConverter {
-	//Dto >>entity
+	//
 	//defectDto >> defect
 	public static Defect defectDtoToDefect(DefectDto defectDto) {
 		Defect defect = new Defect();
@@ -25,6 +25,7 @@ public class DefectConverter {
 			defect.setDefectSubModule(defectDto.getSubModule());
 			defect.setDefectEnteredBy(defectDto.getEnteredBy());
 			defect.setDefectAssignTo(defectDto.getAssignTo());
+			return defect;
 		}
 		
 		
@@ -36,7 +37,7 @@ public class DefectConverter {
 		
 	}
 	
-	//entity >>dto
+	//entity 
 	//defect >>defectDto
 	
 	public static List<DefectDto> defectTodefectDto(List<Defect> defectList){

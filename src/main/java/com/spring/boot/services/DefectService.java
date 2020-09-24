@@ -39,6 +39,10 @@ public interface DefectService {
 		
 		List<Defect> getBydefectPriorityContaining(String defectPriority);
 		
+	//findbysubmoduleID
+		
+		List<Defect> getBySubModule(Long id);
+		
 		
 		
 		

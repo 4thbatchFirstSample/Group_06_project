@@ -34,9 +34,9 @@ public class DefectController {
 	
 	
 	@PostMapping(value = "/defect")
-	public Defect addDefect(@RequestBody DefectDto defectDto) {
-		 return defectService.addDefect(DefectConverter.defectDtoToDefect(defectDto));
-//		 return new ResponseEntity<Object>("New defect added!!!",HttpStatus.CREATED);
+	public ResponseEntity<Object> addDefect(@RequestBody DefectDto defectDto) {
+		  defectService.addDefect(DefectConverter.defectDtoToDefect(defectDto));
+		 return new ResponseEntity<Object>("New defect added!!!",HttpStatus.CREATED);
 	}
 	
 	//getAllDefects
@@ -128,6 +128,17 @@ public class DefectController {
 	@GetMapping("/defects/priority/medium")
 	public List<Defect> findByPriorityMedium(){
 		return defectService.getBydefectPriorityContaining("medium");
+	}
+	
+	
+	//findByMuduleid
+	@GetMapping("defect/module/{id}")
+	public List<Defect> getByModuleId(@PathVariable long id) {
+		
+		
+		return defectService.getBySubModule(id);
+		
+		
 	}
 	
 
