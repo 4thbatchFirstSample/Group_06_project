@@ -43,5 +43,7 @@ public class SubmoduleController {
 	@DeleteMapping(value="submodule/delete/{id}")
 	public String deletemodule(@PathVariable Long id) {
 		subModuleService.deletesubmodule(id);
-		return "Sub Module Deleted";	
-}}
+		return "Sub Module Deleted";
+		
+		}
+	}
