@@ -11,7 +11,7 @@ import com.spring.boot.entities.SubModule;
 
 @Service
 public class DefectConverter {
-	//dtoToEntity
+	//dtoToEntity (post)
 	//defectDto >> defect
 	public static Defect defectDtoToDefect(DefectDto defectDto) {
 		Defect defect = new Defect();
@@ -98,7 +98,7 @@ public class DefectConverter {
 	
 	//getAll
 	//defectEntityToDefectDto
-	public static List<DefectDto> defectToDefectDto(List<Defect> defectsList){
+	public static List<DefectDto> defectsToDefectDtos(List<Defect> defectsList){
 		List<DefectDto> defectDtoList=new ArrayList<>();
 		
 		if(defectsList !=null) {

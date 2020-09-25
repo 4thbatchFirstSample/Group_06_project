@@ -25,13 +25,6 @@ public class DefectController {
 	@Autowired
 	private DefectService defectService;
 	
-	//addDefect
-//	@PostMapping("/defect")
-//	public Defect addDefect(@RequestBody Defect defect) {
-//		return defectService.addDefect(defect);
-//		
-//	}
-	
 	
 	@PostMapping(value = "/defect")
 	public ResponseEntity<Object> addDefect(@RequestBody DefectDto defectDto) {
@@ -44,27 +37,23 @@ public class DefectController {
 	
 	@GetMapping("/defects")
 	public List<DefectDto> getAll(){
-		return DefectConverter.defectToDefectDto(defectService.getAllDefects());
+		return DefectConverter.defectsToDefectDtos(defectService.getAllDefects());
 	}
 
 	
 	//getDefectById
 	@GetMapping("defect/id/{id}")
-	public Defect getById(@PathVariable long id) {
-		
-		
-		return defectService.getDefectByID(id) ;
-		
-		
+	public DefectDto getById(@PathVariable long id) {
+		return DefectConverter.defectToDefectDto(defectService.getDefectByID(id));
 	}
 	
 	
 	//updateDefect
 	
 	@PutMapping("/updates")
-	public ResponseEntity<Object>   updateDefect(@RequestBody Defect defect) {
-		 defectService.updateDefect(defect);
-		 return new ResponseEntity<Object>("Updated",HttpStatus.OK);
+	public ResponseEntity<Object>   updateDefect(@RequestBody DefectDto defectDto) {
+		defectService.updateDefect(DefectConverter.defectDtoToDefect(defectDto));
+		return new ResponseEntity<Object>("Updated",HttpStatus.OK);
 		
 	}
 
@@ -72,72 +61,43 @@ public class DefectController {
 	//deleteDefect
 	@DeleteMapping("/deletedefect/{id}")
 	public String deleteDefect(@PathVariable long id) {
-		
 		defectService.deleteDefect(id);
-		
 		return "Defect Deleted";
-		
-		
-		
 	}
 	
 	//status
 
-	@GetMapping("/defects/status/active")
-	public List<Defect> findBydefectStatusActive(){
-		return defectService.getBydefectStatusContaining("active");
+	@GetMapping("/defects/status/{status}")
+	public List<DefectDto> findBydefectStatus(@PathVariable String status){
+		return DefectConverter.defectsToDefectDtos(defectService.getBydefectStatus(status));
 	}
 	
-	@GetMapping("/defects/status/closed")
-	public List<Defect> findBydefectStatusClosed(){
-		return defectService.getBydefectStatusContaining("closed");
-	}
 	
-	@GetMapping("/defects/status/reopened")
-	public List<Defect> findBydefectStatusReOpened(){
-		return defectService.getBydefectStatusContaining("reopened");
-	}
 	
 	//S
+	@GetMapping("/defects/severity/{severity}")
+	public List<DefectDto> findBydefectSeverity(@PathVariable String severity){
+		return DefectConverter.defectsToDefectDtos(defectService.getBydefectSeverity(severity));
+	}
 	
-	@GetMapping("/defects/severity/high")
-	public List<Defect> findBySeverityHigh(){
-		return defectService.getBydefectSeverityContaining("high");
-	}
-	@GetMapping("/defects/severity/low")
-	public List<Defect> findBySeverityLow(){
-		return defectService.getBydefectSeverityContaining("low");
-	}
 
-	@GetMapping("/defects/severity/medium")
-	public List<Defect> findBySeverityMedium(){
-		return defectService.getBydefectSeverityContaining("medium");
-	}
 
-	
-	//p
-	@GetMapping("/defects/priority/high")
-	public List<Defect> findByPriorityHigh(){
-		return defectService.getBydefectPriorityContaining("high");
+//	//p
+	@GetMapping("/defects/priority/{priority}")
+	public List<DefectDto> findBydefectPriority(@PathVariable String priority){
+		return DefectConverter.defectsToDefectDtos(defectService.getBydefectPriority(priority));
 	}
 	
-	@GetMapping("/defects/priority/low")
-	public List<Defect> findByPriorityLow(){
-		return defectService.getBydefectPriorityContaining("low");
-	}
-	
-	@GetMapping("/defects/priority/medium")
-	public List<Defect> findByPriorityMedium(){
-		return defectService.getBydefectPriorityContaining("medium");
-	}
+
+
 	
 	
 	//findByMuduleid
 	@GetMapping("defect/module/{id}")
-	public List<Defect> getByModuleId(@PathVariable long id) {
+	public List<DefectDto> getByModuleId(@PathVariable long id) {
 		
 		
-		return defectService.getBySubModule(id);
+		return DefectConverter.defectsToDefectDtos(defectService.getBySubModule(id));
 		
 		
 	}

@@ -10,9 +10,9 @@ import com.spring.boot.entities.Defect;
 
 @Repository
 public interface DefectRepository extends JpaRepository<Defect, Long> {
-	List<Defect> findBydefectStatusContaining(String defectStatus);
-	List<Defect> findBydefectSeverityContaining(String defectSeverity);
-	List<Defect> findBydefectPriorityContaining(String defectPriority);
+	List<Defect> findByDefectStatus(String status);
+	List<Defect> findByDefectSeverity(String severity);
+	List<Defect> findByDefectPriority(String priority);
 	
 	List<Defect> findBySubModuleId(Long subMuduleId);
 }

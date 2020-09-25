@@ -8,7 +8,6 @@ public class DefectDto {
 	private String severity;
 	private String priority;
 	private String enteredBy;
-//	private String assignTo;
 	
 	
 	private Long subModuleId;
