@@ -36,14 +36,15 @@ public class DefectController {
 	@PostMapping(value = "/defect")
 	public ResponseEntity<Object> addDefect(@RequestBody DefectDto defectDto) {
 		  defectService.addDefect(DefectConverter.defectDtoToDefect(defectDto));
+		  
 		 return new ResponseEntity<Object>("New defect added!!!",HttpStatus.CREATED);
 	}
 	
 	//getAllDefects
 	
 	@GetMapping("/defects")
-	public List<Defect> getAll(){
-		return defectService.getAllDefects();
+	public List<DefectDto> getAll(){
+		return DefectConverter.defectToDefectDto(defectService.getAllDefects());
 	}
 
 	

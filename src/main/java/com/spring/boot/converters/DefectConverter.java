@@ -7,28 +7,30 @@ import java.util.List;
 
 import com.spring.boot.dto.DefectDto;
 import com.spring.boot.entities.Defect;
+import com.spring.boot.entities.SubModule;
 
 @Service
 public class DefectConverter {
-	//
+	//dtoToEntity
 	//defectDto >> defect
 	public static Defect defectDtoToDefect(DefectDto defectDto) {
 		Defect defect = new Defect();
+		SubModule suModule = new SubModule();
 		if(defectDto !=null) {
-			
 			defect.setDefectId(defectDto.getId());
 			defect.setDefectName(defectDto.getDiscription());
 			defect.setDefectType(defectDto.getType());
 			defect.setDefectStatus(defectDto.getStatus());
 			defect.setDefectSeverity(defectDto.getSeverity());
 			defect.setDefectPriority(defectDto.getPriority());
-			defect.setDefectSubModule(defectDto.getSubModule());
 			defect.setDefectEnteredBy(defectDto.getEnteredBy());
-			defect.setDefectAssignTo(defectDto.getAssignTo());
+			suModule.setId(defectDto.getSubModuleId());
+			
+			defect.setSubModule(suModule);
 			return defect;
 		}
 		
-		
+
 		
 		
 		
@@ -40,29 +42,92 @@ public class DefectConverter {
 	//entity 
 	//defect >>defectDto
 	
-	public static List<DefectDto> defectTodefectDto(List<Defect> defectList){
-		List<DefectDto> listDefectDto =new ArrayList<>();
-		
-		if(defectList !=null) {
+//	public static List<DefectDto> defectTodefectDto(List<Defect> defectList){
+//		List<DefectDto> listDefectDto =new ArrayList<>();
+//		
+//		if(defectList !=null) {
+//			
+//			for(Defect defect :defectList) {
+//				DefectDto defectDto =new DefectDto();
+//				defectDto.setId(defect.getDefectId());
+//				defectDto.setDiscription(defect.getDefectName());
+//				defectDto.setType(defect.getDefectType());
+//				defectDto.setStatus(defect.getDefectStatus());
+//				defectDto.setSeverity(defect.getDefectSeverity());
+//				defectDto.setPriority(defect.getDefectPriority());
+//				defectDto.setEnteredBy(defect.getDefectEnteredBy());
+//				
+//				listDefectDto.add(defectDto);
+//				
+//			}
+//			return listDefectDto;
+//		}
+//		
+//		
+//		return null;
+//		
+//		
+//	}
+//	
+	//getOneDefect
+	public static DefectDto defectToDefectDto(Defect defect) {
+		DefectDto defectDto = new DefectDto();
+		if(defect !=null) {
 			
-			for(Defect defect :defectList) {
+			defectDto.setId(defect.getDefectId());	
+			defectDto.setDiscription(defect.getDefectName());
+			defectDto.setType(defect.getDefectType());
+			defectDto.setStatus(defect.getDefectStatus());
+			defectDto.setSeverity(defect.getDefectSeverity());
+			defectDto.setPriority(defect.getDefectPriority());
+			defectDto.setEnteredBy(defect.getDefectEnteredBy());
+			defectDto.setSubModuleId(defect.getSubModule().getId());
+			
+			
+			return defectDto;
+		}
+		
+		
+	
+		
+		
+		return null;
+		
+		
+	}
+	
+	//getAll
+	//defectEntityToDefectDto
+	public static List<DefectDto> defectToDefectDto(List<Defect> defectsList){
+		List<DefectDto> defectDtoList=new ArrayList<>();
+		
+		if(defectsList !=null) {
+			
+			for(Defect defect:defectsList) {
 				DefectDto defectDto =new DefectDto();
-				defectDto.setId(defect.getDefectId());
+				
+				defectDto.setId(defect.getDefectId());	
 				defectDto.setDiscription(defect.getDefectName());
 				defectDto.setType(defect.getDefectType());
 				defectDto.setStatus(defect.getDefectStatus());
 				defectDto.setSeverity(defect.getDefectSeverity());
 				defectDto.setPriority(defect.getDefectPriority());
-				defectDto.setSubModule(defect.getDefectSubModule());
 				defectDto.setEnteredBy(defect.getDefectEnteredBy());
-				defectDto.setAssignTo(defect.getDefectAssignTo());
+				
+				defectDto.setSubModuleId(defect.getSubModule().getId());
+				
+				defectDtoList.add(defectDto);
+				
 				
 			}
-			return listDefectDto;
+			return defectDtoList;
 		}
 		
 		
+		
+		
 		return null;
+		
 		
 		
 	}
