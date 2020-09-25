@@ -20,7 +20,8 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public List<Project> getProject() {
+	public List<Project> getProjects() {
+		// TODO Auto-generated method stub
 		return projectRepository.findAll();
 	}
 

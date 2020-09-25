@@ -6,5 +6,6 @@ import com.spring.boot.entities.Project;
 
 public interface ProjectService {
 	public void addProject(Project project);
-	public List<Project> getProject();
+	
+	public List<Project> getProjects();
 }

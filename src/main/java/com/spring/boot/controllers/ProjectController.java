@@ -29,7 +29,7 @@ public class ProjectController {
 	
 	@GetMapping(value = "/project")
 	public ResponseEntity<Object> getProject(){
-		return new ResponseEntity<Object>(projectService.getProject(), HttpStatus.OK);
+		return new ResponseEntity<Object>(projectService.getProjects(), HttpStatus.OK);
 		
 	}
 }
