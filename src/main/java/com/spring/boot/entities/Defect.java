@@ -21,6 +21,7 @@ public class Defect {
 	private String defectPriority;
 	private String defectEnteredBy;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "subModuleId", nullable = false)
 	private SubModule subModule;

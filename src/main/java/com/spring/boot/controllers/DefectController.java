@@ -72,33 +72,23 @@ public class DefectController {
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectStatus(status));
 	}
 	
-	
-	
 	//S
 	@GetMapping("/defects/severity/{severity}")
 	public List<DefectDto> findBydefectSeverity(@PathVariable String severity){
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectSeverity(severity));
 	}
 	
-
-
-//	//p
+	//p
 	@GetMapping("/defects/priority/{priority}")
 	public List<DefectDto> findBydefectPriority(@PathVariable String priority){
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectPriority(priority));
 	}
 	
-
-
-	
 	
 	//findByMuduleid
 	@GetMapping("defect/module/{id}")
 	public List<DefectDto> getByModuleId(@PathVariable long id) {
-		
-		
 		return DefectConverter.defectsToDefectDtos(defectService.getBySubModule(id));
-		
 		
 	}
 	
