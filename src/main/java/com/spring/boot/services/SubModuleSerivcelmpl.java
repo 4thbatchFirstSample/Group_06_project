@@ -27,6 +27,11 @@ public class SubModuleSerivcelmpl implements SubModuleService{
 		submoduleRepository.deleteById(id);
 		
 	}
+	@Override
+	public List<SubModule> getsubmoduleidfrommoduleid(Long id) {
+		
+		return null;
+	}
 	
 
 }

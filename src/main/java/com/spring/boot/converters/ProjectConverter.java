@@ -1,13 +1,9 @@
 package com.spring.boot.converters;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.spring.boot.dto.ProjectDto;
 import com.spring.boot.entities.Project;
-
 @Service
 public class ProjectConverter {
 	// projectDto to Project Entity Converter

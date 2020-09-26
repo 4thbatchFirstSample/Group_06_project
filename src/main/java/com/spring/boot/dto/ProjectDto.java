@@ -13,8 +13,6 @@ public class ProjectDto {
 		this.id = id;
 	}
 
-	
-
 	public String getFirstname() {
 		return firstname;
 	}
