@@ -10,5 +10,7 @@ public interface SubModuleService {
 	//delete
 	public void deletesubmodule(Long id);
 	
+	public List<SubModule>getsubmoduleidfrommoduleid(Long id);
+	
 
 }

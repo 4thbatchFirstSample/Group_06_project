@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +18,12 @@ public class SubModule {
 	private Long id;
 	private String submodulename;
 	private String submodulestatus;
+
+	//Relationship
+	@ManyToOne
+	@JoinColumn(name="moduleinsub",nullable=false)
+	private ModuleNew modulenew;
+	
 	public Long getId() {
 		return id;
 	}
