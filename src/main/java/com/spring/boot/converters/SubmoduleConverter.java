@@ -14,8 +14,6 @@ public static SubModule submoduleDtoToSubModule(SubModuleDto submoduledto) {
 		submodule.setSubmodulestatus(submoduledto.getSubmodulestatus());
 	return submodule;
 	}
-	
-	
 	return null;
 
 }
