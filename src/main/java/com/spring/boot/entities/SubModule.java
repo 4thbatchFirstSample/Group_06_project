@@ -21,7 +21,7 @@ public class SubModule {
 
 	//Relationship
 	@ManyToOne
-	@JoinColumn(name="moduleinsub",nullable=false)
+	@JoinColumn(name="moduleid",nullable=false)
 	private ModuleNew modulenew;
 	
 	public Long getId() {

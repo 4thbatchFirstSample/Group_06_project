@@ -1,6 +1,7 @@
 package com.spring.boot.dto;
 
 public class SubModuleDto {
+	private Long moduleid;
 	private Long id;
 	private String submodulename;
 	private String submodulestatus;
