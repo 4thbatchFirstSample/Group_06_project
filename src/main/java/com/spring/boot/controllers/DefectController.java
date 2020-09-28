@@ -3,6 +3,8 @@ package com.spring.boot.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -97,7 +99,7 @@ public class DefectController {
 	//countApi
 	
 	@GetMapping(value ="/defects/counts")
-	public ArrayList<Count> countAPI() {
+	public Count countAPI() {
 		ArrayList<Count> countList=new ArrayList<>();
 		Count count = new Count();
 		
@@ -112,9 +114,9 @@ public class DefectController {
 		count.setPriorityHigh(defectService.countPriority("high"));
 		count.setPriorityLow(defectService.countPriority("low"));
 		count.setPriorityMedium(defectService.countPriority("medium")); 
-		countList.add(count);
+//		countList.add(count);
 		
-		return countList;
+		return count;
 		
 	}
 	
