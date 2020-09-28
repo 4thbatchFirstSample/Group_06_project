@@ -1,5 +1,6 @@
 package com.spring.boot.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.services.DefectService;
 import com.spring.boot.converters.DefectConverter;
+import com.spring.boot.counter.Count;
 import com.spring.boot.entities.Defect;
 import com.spring.boot.dto.DefectDto;
 
@@ -35,22 +37,29 @@ public class DefectController {
 	
 	//getAllDefects
 	
-	@GetMapping("/defects")
+	@GetMapping(value ="/defects")
 	public List<DefectDto> getAll(){
 		return DefectConverter.defectsToDefectDtos(defectService.getAllDefects());
 	}
 
 	
 	//getDefectById
-	@GetMapping("defect/id/{id}")
+	@GetMapping(value ="defect/id/{id}")
 	public DefectDto getById(@PathVariable long id) {
 		return DefectConverter.defectToDefectDto(defectService.getDefectByID(id));
 	}
 	
+	//findByMuduleid
+		@GetMapping("defect/module/{id}")
+		public List<DefectDto> getByModuleId(@PathVariable long id) {
+			return DefectConverter.defectsToDefectDtos(defectService.getBySubModule(id));
+			
+		}
+		
 	
 	//updateDefect
 	
-	@PutMapping("/updates")
+	@PutMapping(value ="/updates")
 	public ResponseEntity<Object>   updateDefect(@RequestBody DefectDto defectDto) {
 		defectService.updateDefect(DefectConverter.defectDtoToDefect(defectDto));
 		return new ResponseEntity<Object>("Updated",HttpStatus.OK);
@@ -59,7 +68,7 @@ public class DefectController {
 
 	
 	//deleteDefect
-	@DeleteMapping("/deletedefect/{id}")
+	@DeleteMapping(value ="/defect/delete/{id}")
 	public String deleteDefect(@PathVariable long id) {
 		defectService.deleteDefect(id);
 		return "Defect Deleted";
@@ -67,28 +76,45 @@ public class DefectController {
 	
 	//status
 
-	@GetMapping("/defects/status/{status}")
+	@GetMapping(value ="/defects/status/{status}")
 	public List<DefectDto> findBydefectStatus(@PathVariable String status){
+		
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectStatus(status));
 	}
 	
-	//S
-	@GetMapping("/defects/severity/{severity}")
+	//severity
+	@GetMapping(value ="/defects/severity/{severity}")
 	public List<DefectDto> findBydefectSeverity(@PathVariable String severity){
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectSeverity(severity));
 	}
 	
-	//p
-	@GetMapping("/defects/priority/{priority}")
+	//priority
+	@GetMapping(value ="/defects/priority/{priority}")
 	public List<DefectDto> findBydefectPriority(@PathVariable String priority){
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectPriority(priority));
 	}
 	
+	//countApi
 	
-	//findByMuduleid
-	@GetMapping("defect/module/{id}")
-	public List<DefectDto> getByModuleId(@PathVariable long id) {
-		return DefectConverter.defectsToDefectDtos(defectService.getBySubModule(id));
+	@GetMapping(value ="/defects/counts")
+	public ArrayList<Count> countAPI() {
+		ArrayList<Count> countList=new ArrayList<>();
+		Count count = new Count();
+		
+		count.setStatusClosed(defectService.countStatus("closed"));
+		count.setStatusOpened(defectService.countStatus("opened"));
+		count.setStatusReOpened(defectService.countStatus("reopened"));
+		
+		count.setSeverityHigh(defectService.countSeverity("high"));
+		count.setSeverityLow(defectService.countSeverity("low"));
+		count.setSeverityMedium(defectService.countSeverity("medium"));
+		
+		count.setPriorityHigh(defectService.countPriority("high"));
+		count.setPriorityLow(defectService.countPriority("low"));
+		count.setPriorityMedium(defectService.countPriority("medium")); 
+		countList.add(count);
+		
+		return countList;
 		
 	}
 	

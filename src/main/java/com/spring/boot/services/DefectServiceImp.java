@@ -83,6 +83,23 @@ public class DefectServiceImp implements DefectService {
 		return defectRepository.findByDefectPriority(priority);
 	}
 	
+	@Override
+	public long countStatus(String status) {
+		return defectRepository.countByDefectStatus(status);
+		
+	}
+
+	@Override
+	public long countSeverity(String severity) {
+		// TODO Auto-generated method stub
+		return defectRepository.countByDefectSeverity(severity);
+	}
+
+	@Override
+	public long countPriority(String priority) {
+		// TODO Auto-generated method stub
+		return defectRepository.countByDefectPriority(priority);
+	}
 	
 	
 }
