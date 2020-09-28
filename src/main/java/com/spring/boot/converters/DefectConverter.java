@@ -39,36 +39,8 @@ public class DefectConverter {
 		
 	}
 	
-	//entity 
-	//defect >>defectDto
 	
-//	public static List<DefectDto> defectTodefectDto(List<Defect> defectList){
-//		List<DefectDto> listDefectDto =new ArrayList<>();
-//		
-//		if(defectList !=null) {
-//			
-//			for(Defect defect :defectList) {
-//				DefectDto defectDto =new DefectDto();
-//				defectDto.setId(defect.getDefectId());
-//				defectDto.setDiscription(defect.getDefectName());
-//				defectDto.setType(defect.getDefectType());
-//				defectDto.setStatus(defect.getDefectStatus());
-//				defectDto.setSeverity(defect.getDefectSeverity());
-//				defectDto.setPriority(defect.getDefectPriority());
-//				defectDto.setEnteredBy(defect.getDefectEnteredBy());
-//				
-//				listDefectDto.add(defectDto);
-//				
-//			}
-//			return listDefectDto;
-//		}
-//		
-//		
-//		return null;
-//		
-//		
-//	}
-//	
+
 	//getOneDefect
 	public static DefectDto defectToDefectDto(Defect defect) {
 		DefectDto defectDto = new DefectDto();
@@ -115,17 +87,11 @@ public class DefectConverter {
 				defectDto.setEnteredBy(defect.getDefectEnteredBy());
 				
 				defectDto.setSubModuleId(defect.getSubModule().getId());
-				
-				defectDtoList.add(defectDto);
-				
-				
+
+				defectDtoList.add(defectDto);		
 			}
 			return defectDtoList;
 		}
-		
-		
-		
-		
 		return null;
 		
 		
