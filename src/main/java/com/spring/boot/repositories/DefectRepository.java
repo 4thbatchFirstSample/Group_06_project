@@ -19,4 +19,9 @@ public interface DefectRepository extends JpaRepository<Defect, Long> {
 	long countByDefectSeverity(String severity);
 	long countByDefectPriority(String priority);
 	
+	boolean existsById(Long id);
+	
+	
+	
+	
 }

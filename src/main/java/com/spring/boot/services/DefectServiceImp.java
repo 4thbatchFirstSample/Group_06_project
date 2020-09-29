@@ -100,6 +100,12 @@ public class DefectServiceImp implements DefectService {
 		// TODO Auto-generated method stub
 		return defectRepository.countByDefectPriority(priority);
 	}
+
+	@Override
+	public boolean existsById(Long id) {
+		// TODO Auto-generated method stub
+		return defectRepository.existsById(id);
+	}
 	
 	
 }

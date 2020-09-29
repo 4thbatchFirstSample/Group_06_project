@@ -43,11 +43,15 @@ public interface DefectService {
 		
 		public List<Defect> getBySubModule(Long id);
 
-
-
+		
+		//count
 		public long countStatus(String status);
 		public long countSeverity(String severity);
 		public long countPriority(String priority);
+		
+		//checkID
+		public boolean existsById(Long id);
+		
 		
 		
 		

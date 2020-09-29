@@ -31,7 +31,7 @@ public class DefectController {
 	
 	
 	@PostMapping(value = "/defect")
-	public ResponseEntity<Object> addDefect(@RequestBody DefectDto defectDto) {
+	public ResponseEntity<Object> addDefect(@Valid @RequestBody DefectDto defectDto) {
 		  defectService.addDefect(DefectConverter.defectDtoToDefect(defectDto));
 		  
 		 return new ResponseEntity<Object>("New defect added!!!",HttpStatus.CREATED);
@@ -72,8 +72,13 @@ public class DefectController {
 	//deleteDefect
 	@DeleteMapping(value ="/defect/delete/{id}")
 	public String deleteDefect(@PathVariable long id) {
-		defectService.deleteDefect(id);
-		return "Defect Deleted";
+		if(defectService.existsById(id)) {
+			defectService.deleteDefect(id);
+			return "Defect Deleted";
+		}
+		
+		return "ID not exists!!!";
+		
 	}
 	
 	//status
@@ -101,7 +106,7 @@ public class DefectController {
 	
 	@GetMapping(value ="/defects/counts")
 	public Count countAPI() {
-		ArrayList<Count> countList=new ArrayList<>();
+//		ArrayList<Count> countList=new ArrayList<>();
 		Count count = new Count();
 		
 		count.setStatusClosed(defectService.countStatus("closed"));
