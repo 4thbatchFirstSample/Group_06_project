@@ -24,13 +24,42 @@ public class ProjectServiceImpl implements ProjectService {
 	        return projectRepository.findAll();
 	    }
 
-	 public List<Project> saveProjects(List<Project> projects) {
-	        return projectRepository.saveAll(projects);
+	 public void saveProjects(List<Project> projects) {
+	         projectRepository.saveAll(projects);
 	    }
 	 
 	  public Project getProjectById(long id) {
 	        return projectRepository.findById(id).orElse(null);
 	    }
 	  
+	  
+	  
+	  @Override
+	  public void updateProject(Project project) {
+			// TODO Auto-generated method stub
+			
+		  Project existProject = projectRepository.findById(project.getProjectId()).orElse(null);
+		
+		  existProject.setProjectName(project.getProjectName());
+		  existProject.setAbbreviation(project.getAbbreviation());
+		
+		  projectRepository.save(existProject);
+		}
+	  
+	  
+	  @Override
+		public void deleteProject(Long id) {
+		  projectRepository.deleteById(id);
+			
+		}
 
+		@Override
+		public boolean existsById(Long id) {
+			// TODO Auto-generated method stub
+			return projectRepository.existsById(id);
+		}
+		
+		  public void deleteAllProjects() {
+			  projectRepository.deleteAll();
+		  }
 }
