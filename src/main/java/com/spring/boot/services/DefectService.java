@@ -28,20 +28,26 @@ public interface DefectService {
 		
 	//getBydefectStatus
 		
-		List<Defect> getBydefectStatus(String defectStatus);
+		public List<Defect> getBydefectStatus(String defectStatus);
 	
 	//defectSeverity
 		
-		List<Defect> getBydefectSeverity(String defectSeverity);
+		public List<Defect> getBydefectSeverity(String defectSeverity);
 		
 		
 	//defectPriority
 		
-		List<Defect> getBydefectPriority(String defectPriority);
+		public List<Defect> getBydefectPriority(String defectPriority);
 		
 	//findbysubmoduleID
 		
-		List<Defect> getBySubModule(Long id);
+		public List<Defect> getBySubModule(Long id);
+
+
+
+		public long countStatus(String status);
+		public long countSeverity(String severity);
+		public long countPriority(String priority);
 		
 		
 		

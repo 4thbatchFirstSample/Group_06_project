@@ -13,6 +13,10 @@ public interface DefectRepository extends JpaRepository<Defect, Long> {
 	List<Defect> findByDefectStatus(String status);
 	List<Defect> findByDefectSeverity(String severity);
 	List<Defect> findByDefectPriority(String priority);
-	
 	List<Defect> findBySubModuleId(Long subMuduleId);
+	
+	long countByDefectStatus(String status);
+	long countByDefectSeverity(String severity);
+	long countByDefectPriority(String priority);
+	
 }
