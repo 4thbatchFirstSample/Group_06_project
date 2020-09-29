@@ -81,6 +81,7 @@ public class DefectController {
 	//p
 	@GetMapping("/defects/priority/{priority}")
 	public List<DefectDto> findBydefectPriority(@PathVariable String priority){
+		
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectPriority(priority));
 	}
 	
