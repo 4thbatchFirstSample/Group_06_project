@@ -9,6 +9,9 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+
 
 @Entity
 @Table
@@ -16,6 +19,7 @@ public class SubModule {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	@NotBlank
 	private String submodulename;
 	private String submodulestatus;
 
