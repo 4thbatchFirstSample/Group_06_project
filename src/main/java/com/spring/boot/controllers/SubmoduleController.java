@@ -30,7 +30,7 @@ public class SubmoduleController {
 		
 	}
 	
-	@GetMapping(value ="/submodule/view")
+	@GetMapping(value ="/submodule")
 	public ResponseEntity<Object>getsubmodule(){
 		return new ResponseEntity<Object>(subModuleService.getAllSubModule(), HttpStatus.OK);
 	}
