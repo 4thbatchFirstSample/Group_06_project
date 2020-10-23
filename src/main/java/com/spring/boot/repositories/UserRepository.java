@@ -6,4 +6,6 @@ import com.spring.boot.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+	User findByUserName(String username);
+
 }

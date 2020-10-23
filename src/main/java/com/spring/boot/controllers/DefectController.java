@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,13 +25,14 @@ import com.spring.boot.entities.Defect;
 import com.spring.boot.dto.DefectDto;
 
 @RestController
-@RequestMapping(value = "api/v1")
+@RequestMapping(value = "/api/v1/defect")
 public class DefectController {
+	
 	@Autowired
 	private DefectService defectService;
 	
 	
-	@PostMapping(value = "/defect")
+	@PostMapping(value = "/add")
 	public ResponseEntity<Object> addDefect(@Valid @RequestBody DefectDto defectDto) {
 		  defectService.addDefect(DefectConverter.defectDtoToDefect(defectDto));
 		  
@@ -39,20 +41,20 @@ public class DefectController {
 	
 	//getAllDefects
 	
-	@GetMapping(value ="/defects")
+	@GetMapping(value ="/")
 	public List<DefectDto> getAll(){
 		return DefectConverter.defectsToDefectDtos(defectService.getAllDefects());
 	}
 
 	
 	//getDefectById
-	@GetMapping(value ="defect/id/{id}")
+	@GetMapping(value ="/id/{id}")
 	public DefectDto getById(@PathVariable long id) {
 		return DefectConverter.defectToDefectDto(defectService.getDefectByID(id));
 	}
 	
 	//findByMuduleid
-		@GetMapping("defect/module/{id}")
+		@GetMapping("/module/{id}")
 		public List<DefectDto> getByModuleId(@PathVariable long id) {
 			return DefectConverter.defectsToDefectDtos(defectService.getBySubModule(id));
 			
@@ -70,7 +72,7 @@ public class DefectController {
 
 	
 	//deleteDefect
-	@DeleteMapping(value ="/defect/delete/{id}")
+	@DeleteMapping(value ="/delete/{id}")
 	public String deleteDefect(@PathVariable long id) {
 		if(defectService.existsById(id)) {
 			defectService.deleteDefect(id);
@@ -83,20 +85,20 @@ public class DefectController {
 	
 	//status
 
-	@GetMapping(value ="/defects/status/{status}")
+	@GetMapping(value ="/status/{status}")
 	public List<DefectDto> findBydefectStatus(@PathVariable String status){
 		
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectStatus(status));
 	}
 	
 	//severity
-	@GetMapping(value ="/defects/severity/{severity}")
+	@GetMapping(value ="/severity/{severity}")
 	public List<DefectDto> findBydefectSeverity(@PathVariable String severity){
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectSeverity(severity));
 	}
 	
 	//priority
-	@GetMapping(value ="/defects/priority/{priority}")
+	@GetMapping(value ="/priority/{priority}")
 	public List<DefectDto> findBydefectPriority(@PathVariable String priority){
 		
 		return DefectConverter.defectsToDefectDtos(defectService.getBydefectPriority(priority));
@@ -104,7 +106,7 @@ public class DefectController {
 	
 	//countApi
 	
-	@GetMapping(value ="/defects/counts")
+	@GetMapping(value ="/counts")
 	public Count countAPI() {
 //		ArrayList<Count> countList=new ArrayList<>();
 		Count count = new Count();
