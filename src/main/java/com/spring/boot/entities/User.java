@@ -1,10 +1,18 @@
 package com.spring.boot.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+@Entity
+@Table
 public class User {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 private long id;
+	@NotBlank
 private String username;
 private String password;
 private String role;
@@ -46,6 +54,4 @@ public String getRole() {
 public void setRole(String role) {
 	this.role = role;
 }
-
-
 }
