@@ -18,6 +18,8 @@ private String password;
 private String role;
 private String mail;
 private int phone;
+
+
 public long getId() {
 	return id;
 }

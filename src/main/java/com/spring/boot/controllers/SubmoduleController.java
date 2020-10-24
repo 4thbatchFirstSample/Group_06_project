@@ -26,10 +26,8 @@ public class SubmoduleController {
 	public ResponseEntity<Object>addsubmodule(@RequestBody SubModule subModule){
 		subModuleService.addsubmodule(subModule);
 		//SubModuleService.addsubmodule(subModule);
-		return new ResponseEntity<Object>("Sub Module Added", HttpStatus.OK);
-		
+		return new ResponseEntity<Object>("Sub Module Added", HttpStatus.OK);	
 	}
-	
 	@GetMapping(value ="/submodule")
 	public ResponseEntity<Object>getsubmodule(){
 		return new ResponseEntity<Object>(subModuleService.getAllSubModule(), HttpStatus.OK);
