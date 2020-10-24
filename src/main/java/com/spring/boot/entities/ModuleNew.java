@@ -14,7 +14,7 @@ public class ModuleNew {
 	private Long id;
 	private String name;
 	private String status;
-	
+	 
 	public Long getId() {
 		return id;
 	}
