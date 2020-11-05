@@ -1,7 +1,10 @@
 package com.spring.boot.converters;
 import java.util.ArrayList;
 import com.spring.boot.dto.ModuleDto;
+import com.spring.boot.dto.SubModuleDto;
 import com.spring.boot.entities.ModuleNew;
+import com.spring.boot.entities.SubModule;
+
 import java.util.List;
 
 public class ModuleConverter {
@@ -31,4 +34,8 @@ public class ModuleConverter {
 		}
 		return null;
 	}
+
+	
+	
+	
 }

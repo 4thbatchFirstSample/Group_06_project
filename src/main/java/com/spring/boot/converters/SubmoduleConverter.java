@@ -1,20 +1,16 @@
 package com.spring.boot.converters;
 import java.util.ArrayList;
-
 import org.springframework.stereotype.Service;
-
-import com.spring.boot.dto.ModuleDto;
 import com.spring.boot.dto.SubModuleDto;
 import com.spring.boot.entities.ModuleNew;
 import com.spring.boot.entities.SubModule;
-import java.util.ArrayList;
-import com.spring.boot.dto.ModuleDto;
-import com.spring.boot.entities.ModuleNew;
 import java.util.List;
+import com.spring.boot.dto.SubModuleDto;
 
 @Service
 public class SubmoduleConverter {
-public static SubModule submoduleDtoToSubModule(SubModuleDto submoduledto) {
+	////module dto to entity 
+public static SubModule submoduleDtoTosubmodule1(SubModuleDto submoduledto) {
 	SubModule submodule=new SubModule();
 	ModuleNew module = new ModuleNew();
 		if (submoduledto!=null) {

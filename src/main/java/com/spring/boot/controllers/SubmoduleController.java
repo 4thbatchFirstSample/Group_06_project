@@ -1,5 +1,4 @@
 package com.spring.boot.controllers;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
+import com.spring.boot.converters.SubmoduleConverter;
+import com.spring.boot.dto.SubModuleDto;
 import com.spring.boot.entities.SubModule;
 import com.spring.boot.services.SubModuleService;
 
@@ -22,13 +21,12 @@ public class SubmoduleController {
 	@Autowired
 	private SubModuleService subModuleService;
 	
-	@PostMapping(value="/submodule")
+	@PostMapping(value="/submodule/add")
 	public ResponseEntity<Object>addsubmodule(@RequestBody SubModule subModule){
-		subModuleService.addsubmodule(subModule);
-		//SubModuleService.addsubmodule(subModule);
+	subModuleService.addsubmodule(subModule);
 		return new ResponseEntity<Object>("Sub Module Added", HttpStatus.OK);	
 	}
-	@GetMapping(value ="/submodule")
+	@GetMapping(value ="/submodule/view")
 	public ResponseEntity<Object>getsubmodule(){
 		return new ResponseEntity<Object>(subModuleService.getAllSubModule(), HttpStatus.OK);
 	}

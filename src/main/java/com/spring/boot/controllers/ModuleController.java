@@ -24,24 +24,21 @@ public class ModuleController {
 	@PostMapping(value = "/module")
 	public ResponseEntity<Object>addModule(@RequestBody ModuleDto moduleDto){
 		moduleService.addModule(ModuleConverter.moduleDtoTomodule(moduleDto));
-		return new ResponseEntity<Object>("Added", HttpStatus.OK);	
+		return new ResponseEntity<Object>("New Module Added", HttpStatus.OK);	
 	}
 	@GetMapping(value ="/module/view")
 	public ResponseEntity<Object> getModule(){
 		return new ResponseEntity<Object>(moduleService.getAllModule(), HttpStatus.OK);
 	}
-	
 	@DeleteMapping(value="module/delete/{id}")
 	public String deletemodule(@PathVariable Long id) {
 		moduleService.deletemodule(id);
-		return "Deleted";		
-		
+		return "Module Deleted";			
 	}
-
 	@PutMapping(value = "/module/update")
 	public ResponseEntity<Object> updateModule(@RequestBody ModuleNew module){
 		moduleService.addModule(module);
-		return new ResponseEntity<Object>("Updated", HttpStatus.OK);
+		return new ResponseEntity<Object>("Module Updated", HttpStatus.OK);
 	}
 	
 }
